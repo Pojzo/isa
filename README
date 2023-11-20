@@ -1,0 +1,30 @@
+author: Peter kovac
+login:  xkovac66
+date:   19.11.2023
+
+files:
+    ./src
+        tftp_client.c
+        tftp_server.c
+        args_parser.c
+        config.c
+        utils.c
+
+    ./include
+        args.h
+        utils.h
+        config.h
+
+Compile with:
+    make
+
+Run with:
+    ./bin/tftp-client -h hostname [-p port] [-f filepath] -t dest_filepath
+    ./bin/tftp-server [-p port]
+
+What works: Downloading and uploading without options. Downloading from server with blksize option. 
+            The server can accept timeout option but its functionality is not implemented. Octet and netascii mode in
+            download.
+
+What does not work: Most error handling is not implemented. Timeout option. Netascii mode in upload. The server is not
+concurrent - only one client can communicate at given time.
